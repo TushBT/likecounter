@@ -126,7 +126,7 @@ Channel.params = {
 
 
 Channel.getData = function(successCallback, errorCallback) {
-    var apiKey = 'AIzaSyCB5EmuHXHuLErGzRTOapT-_cLMtnKvYF8';
+    var apiKey = getMyKey();
     var apiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+Channel.params.channelID+'&eventType=live&type=video&maxResults=1&key='+apiKey; //ONLY BY CHANNELID
 //        var apiUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=1&q='+Channel.params.channelID+'&key='+apiKey; //BY CHANNELID/NAME
 //        var apiUrl = 'http://localhost/likescounter/test.json';
