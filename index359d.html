@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from likescounter.com/?color=black by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Feb 2021 17:49:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LikesCounter is a meter which keeps you informed about the number of likes and dislikes in real time under a film on YouTube.">
+    <meta property="og:title" content="Realtime YouTube Likes Counter">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="index.html">
+    <meta property="og:image" content="img/logo.png">
+    <meta property="og:description" content="Likescounter is used to view the live likes dislikes and viewers number for any YouTube video with livestreams and OBS Support! Just type the video URL and enjoy the counter!">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#00c853">
+
+
+    <title>Realtime Video Likes Counter on Youtube (OBS Support)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="css/odometer-theme-default.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style7839.css?v=1.2" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-104508594-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body class="black">
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="index.html" title="Realtime Youtube live likes counter" class="logo"><img src="img/logo.png" alt=""></a>
+            </div>
+            
+        </div>
+    </div>
+</header>
+
+<section class="selection">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 center-block">
+                <form action="#" method="get" id="formurl">
+                    <input type="text" class="" name="vidid" id="vidid" placeholder="Paste a link to the film/live or ChannelID">
+                </form>
+                <p id="vidid-type"><a href="#" class="set-title">tytuł</a>/<a href="#" class="set-id">id</a> </p>
+                <p class="slug">Do you wish to have the constant counter for your current live? Type your <a href="#searchchannel" data-toggle="tooltip" data-placement="top" title="Click and check">ChannelID!</a></p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="statistics">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<h1>Tytuł: <span class="title"></span></h1>-->
+
+                <div class="info"></div>
+                <div class="counter" style="display: none">
+                    <div class="line">
+                        <div class="ov-likes">
+                            <div class="ico"></div>
+                            <span class="likes">?</span>
+                        </div>
+                        <div class="ov-dislikes">
+                            <div class="ico"></div>
+                            <span class="dislikes">?</span>
+                        </div>
+                    </div>
+
+                    <div class="line l2">
+                        <div class="ov-livestreamviewers">
+                            <div class="ico"></div>
+                            <span class="views">?</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-details">
+                    <div class="row">
+                        <div class="col-md-4 ov-views">
+                            <h4>Łączna liczba wyświetleń <small>(filmu)</small>:</h4>
+                            <span class="views-total">?</span>
+                        </div>
+                        <div class="col-md-4 ov-comments">
+                            <h4>Comments:</h4>
+                            <span class="comments">?</span>
+                        </div>
+                        <div class="col-md-4 ov-channelid">
+                            <h4>YouTube ChannelID:</h4>
+                            <span class="channelid">?</span>
+                        </div>
+                        <div class="col-md-4 ov-channelname">
+                            <h4>YouTube ChannelID:</h4>
+                            <span class="channelname">?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details">
+                    <span class="autor"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="colorselect">
+                    <div class="infobox">
+                        <div class="left">You <strong>can change </strong>the colors here ;)</div>
+                        <button href="#" class="closebox">OK</button> </div>
+                    <ul>
+                                                <li><a href="index779e.html?color=green" class="green "></a></li>
+                        <li><a href="index4dfb.html?color=white" class="white " ></a></li>
+                        <li><a href="index359d.html?color=black" class="black active"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 about-txt">
+                <h2>What is <strong>LikesCounter</strong> and how does it work??</h2>
+                <p><strong>LikesCounter</strong> is a meter which keeps you informed about the number of <strong>likes and dislikes</strong> in real time under a film on YouTube.
+
+<strong>LikesCounter</strong> is also dedicated to streamers that wish to place additional information on a stream screen.
+Our counter will allow you to easily add to the screen of your <strong>livestreams</strong> information  related to the current number of viewers, likes and dislikes of a stream, total <strong>number of views</strong> and other information.
+
+                    <br>
+                    <br> If you wish to add the statistics to the OBS transmission screen, use the BrowserSource plug (embedded in newer versions) and copy the below link directly after finding your live in the module above. Next paste the copied link to the <a href="https://www.youtube.com/watch?v=ABJbED2ngks" target="_blank"><strong>BrowserSource</strong></a> plug (recommended size: height 1080px, 1200px widith). Please remember that you can always change the style of viewed statistics using our 3 modes.
+
+
+                    <br><br>We suggest using your personal <strong>ChannelID</strong> instead of a link to the live, so that while starting the OBS you would run the statistics applicable for the started live (without the need of links change).
+                    <br><br>
+                    We also dispose of built-in channel <a href="#searchchannel">search tool</a> for ChannelID – you can obtain it in 3 ways. The first solution is pasting a link to the film/live from your channel, second is using our search tool, third is checking it on the <a href="https://support.google.com/youtube/answer/3250431" target="_blank">YouTube panel.</a></p>
+                <br><p>FAQ & Additional settings for OBS:</p>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">CSS - shadow</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">Do you wish to add the shadow to the statistics? In CSS text box paste the following: <code>.statistics { text-shadow: 2px 2px 2px rgb(0, 0, 0); }</code></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">CSS – hide the background (white style)</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">In case of choosing white style – in order to remove the background paste to the OBS in style settings (CSS) while adding: <br>
+                                <code>body { background: rgba(0,0,0,0)!important; }</code></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">CSS – hide the background (white style)</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">In case of choosing white style – in order to remove the background paste to the OBS in style settings (CSS) while adding: <br>
+                                <code>body { background: rgba(0,0,0,0)!important; }</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 center-block share">
+                <h3>Udostępnij!</h3>
+                <div class="ov-share">
+                    <input type="text" class="shareurl" id="shareurl" placeholder="index.html">
+                    <button class="copy">SKOPIUJ</button>
+                </div>
+                <p class="parameters"><span class="big">You can use this link in OBS <span class="space"></span></span>
+                    Paramerers:
+                    <code>vidid</code> - Video ID/ChannelID <span class="space"></span>
+                    <code>color</code> - style <kbd>(green/white/black)</kbd></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 center-block channelid">
+                <h3>Check ChannelID</h3>
+                <form action="#" method="get" id="formchannelid">
+                    <input type="text" name="channel" id="searchchannel" class="searchchannel" placeholder="Channel name">
+                    <input type="submit" class="submit" value="CHECK">
+                </form>
+                <ul class="channellist"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="index.html" title="Licznik youtube like"><img src="img/logo-footer.png" alt="Logo licznik likes"></a>
+            </div>
+            <div class="col-md-6 text-right right">
+				<p class="terms"><a href="terms_and_conditions.html" title="terms and conditions" target="_blank">T&C</a><span>/</span> <a href="privacy_policy.html">Privacy Policy</a></p>
+                <p>Design by <a href="http://wizzziy.pl/" title="WizZziy Graphic Designer, Web Designer, Grafik, Grafika" target="_blank">WizZziy</a><span>/</span>Code by <a href="http://davidos.pl/" title="Davidos - Programista, Front-end Developer, Web Developer, Full-Stack Developer, HTML, PHP" target="_blank">Davidos</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/odometer.min.js"></script>
+<script src="js/bootstrap-notify.min.js"></script>
+<script>
+    var langArr = {"page-desc":"LikesCounter is a meter which keeps you informed about the number of likes and dislikes in real time under a film on YouTube.","page-title":"Realtime Video Likes Counter on Youtube (OBS Support)","input-placeholder":"Paste a link to the film\/live or ChannelID","input-slug":"Do you wish to have the constant counter for your current live? Type your <a href=\"#searchchannel\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Click and check\">ChannelID!<\/a>","title":"tytu\u0142","total-views":"\u0141\u0105czna liczba wy\u015bwietle\u0144 <small>(filmu)<\/small>","comments":"Comments","channelid":"YouTube ChannelID","channelname":"Channel name","color-change":"You <strong>can change <\/strong>the colors here ;)","about-title":"What is <strong>LikesCounter<\/strong> and how does it work?","about-desc":"<strong>LikesCounter<\/strong> is a meter which keeps you informed about the number of <strong>likes and dislikes<\/strong> in real time under a film on YouTube.\n\n<strong>LikesCounter<\/strong> is also dedicated to streamers that wish to place additional information on a stream screen.\nOur counter will allow you to easily add to the screen of your <strong>livestreams<\/strong> information  related to the current number of viewers, likes and dislikes of a stream, total <strong>number of views<\/strong> and other information.\n\n                    <br>\n                    <br> If you wish to add the statistics to the OBS transmission screen, use the BrowserSource plug (embedded in newer versions) and copy the below link directly after finding your live in the module above. Next paste the copied link to the <a href=\"https:\/\/www.youtube.com\/watch?v=ABJbED2ngks\" target=\"_blank\"><strong>BrowserSource<\/strong><\/a> plug (recommended size: height 1080px, 1200px widith). Please remember that you can always change the style of viewed statistics using our 3 modes.\n\n\n                    <br><br>We suggest using your personal <strong>ChannelID<\/strong> instead of a link to the live, so that while starting the OBS you would run the statistics applicable for the started live (without the need of links change).\n                    <br><br>\n                    We also dispose of built-in channel <a href=\"#searchchannel\">search tool<\/a> for ChannelID \u2013 you can obtain it in 3 ways. The first solution is pasting a link to the film\/live from your channel, second is using our search tool, third is checking it on the <a href=\"https:\/\/support.google.com\/youtube\/answer\/3250431\" target=\"_blank\">YouTube panel.<\/a>","faq-title":"FAQ & Additional settings for OBS","faq-1-title":"CSS - shadow","faq-1":"Do you wish to add the shadow to the statistics? In CSS text box paste the following: <code>.statistics { text-shadow: 2px 2px 2px rgb(0, 0, 0); }<\/code>","faq-2-title":"CSS \u2013 hide the background (white style)","faq-2":"In case of choosing white style \u2013 in order to remove the background paste to the OBS in style settings (CSS) while adding: <br>\n                                <code>body { background: rgba(0,0,0,0)!important; }<\/code>","share":"Udost\u0119pnij!","copy":"SKOPIUJ","share-undertext":"<span class=\"big\">You can use this link in OBS <span class=\"space\"><\/span><\/span>\n                    Paramerers:\n                    <code>vidid<\/code> - Video ID\/ChannelID <span class=\"space\"><\/span>\n                    <code>color<\/code> - style <kbd>(green\/white\/black)<\/kbd>","channelid-title":"Check ChannelID","channelid-wrong":"Something wrong? Check <a href=\"https:\/\/support.google.com\/youtube\/answer\/3250431\" target=\"_blank\">youtube help about ChannelID.<\/a>","channel-name":"Channel name","check":"CHECK","notify-info":"Information:","notify-problems-google-api-key":"We had problems with counter because YouTube has too low request limits per day - we didn\\'t know that this counter has that much interest :)<br> We added new keys and optimalized code - <strong>problem fixed<\/strong>","error-wrong-id":"Wrong ID","error-wrong-id-channel":"Wrong Channel ID","live-ended":"LIVE ended at","error-no-live":"No livestream found for this channel or wrong ID, retrying.."};
+    function getTrans(name) {
+        return langArr[name];
+    }
+</script>
+<script src="js/script.js"></script>
+<script src="js/notificationsf9e3.js?v=1.1"></script>
+
+</body>
+
+<!-- Mirrored from likescounter.com/?color=black by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Feb 2021 17:49:05 GMT -->
+</html>
